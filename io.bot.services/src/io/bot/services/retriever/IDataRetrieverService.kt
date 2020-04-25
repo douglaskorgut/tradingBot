@@ -1,6 +1,9 @@
 package io.bot.services.retriever
 
 import io.bot.services.input.model.CursorPosition
+import io.bot.services.retriever.model.ForbiddenPeriod
+import io.bot.services.trading.model.Candle
+import io.bot.services.trading.model.CandleContext
 import io.bot.services.trading.model.Order
 
 interface IDataRetrieverService {
@@ -23,7 +26,12 @@ interface IDataRetrieverService {
 
     fun retrieveSupportLines(): Array<Double>
 
-    fun retrieveCurrentPrice(): Double
+    fun retrieveCurrentCandle(): Candle
+
+    fun retrieveCandleContext(candle: Candle): CandleContext
 
     fun isOrderConfirmed(order: Order): Boolean
+
+    fun retrieveForbiddenPeriods(): Array<ForbiddenPeriod>
+
 }

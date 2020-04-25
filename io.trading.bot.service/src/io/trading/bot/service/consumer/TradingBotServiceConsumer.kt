@@ -13,6 +13,7 @@ class TradingBotServiceConsumer {
 
     private val logger: Logger = LoggerFactory.getLogger(TradingBotServiceConsumer::class.java)
 
+    // TODO: Use service workers to execute thread
     private val tradingBotRunner = Thread {
         for (x in 0..10){
             Thread.sleep(200)

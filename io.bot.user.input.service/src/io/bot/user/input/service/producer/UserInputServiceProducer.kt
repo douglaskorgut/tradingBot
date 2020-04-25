@@ -23,7 +23,7 @@ class UserInputServiceProducer: IUserInputService {
         logger.info("${this.javaClass} has been started!")
 
         // Set robot default data
-        this.robot.autoDelay = 40;
+        this.robot.autoDelay = 40
         this.robot.isAutoWaitForIdle = true
     }
 
@@ -47,9 +47,9 @@ class UserInputServiceProducer: IUserInputService {
     override fun rightClick() {
         try {
             this.robot.mousePress(InputEvent.BUTTON3_MASK)
-            this.robot.delay(TradingBotConstants.LEFT_CLICK_DELAY_MS)
+            this.robot.delay(TradingBotConstants.RIGHT_CLICK_DELAY_MS)
            this.robot.mouseRelease(InputEvent.BUTTON3_MASK)
-           this.robot.delay(TradingBotConstants.LEFT_CLICK_DELAY_MS)
+           this.robot.delay(TradingBotConstants.RIGHT_CLICK_DELAY_MS)
         } catch (e: Exception){
             logger.error("Error performing right click: ${e.message}")
         }
