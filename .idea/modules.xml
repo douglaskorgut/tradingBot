@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/io.bot.data.retriever.service/io.bot.data.retriever.service.iml" filepath="$PROJECT_DIR$/io.bot.data.retriever.service/io.bot.data.retriever.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io.bot.services/io.bot.services.iml" filepath="$PROJECT_DIR$/io.bot.services/io.bot.services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io.bot.services.xlsx.reader/io.bot.services.xlsx.reader.iml" filepath="$PROJECT_DIR$/io.bot.services.xlsx.reader/io.bot.services.xlsx.reader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io.bot.user.input.service/io.bot.user.input.service.iml" filepath="$PROJECT_DIR$/io.bot.user.input.service/io.bot.user.input.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io.trading.bot.service/io.trading.bot.service.iml" filepath="$PROJECT_DIR$/io.trading.bot.service/io.trading.bot.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/osgi-trading-bot.iml" filepath="$PROJECT_DIR$/.idea/osgi-trading-bot.iml" />
+    </modules>
+  </component>
+</project>
