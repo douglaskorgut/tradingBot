@@ -1,5 +1,6 @@
 package io.bot.data.retriever.service.producer
 
+import io.bot.services.constants.ForbiddenPeriods
 import io.bot.services.input.model.CursorPosition
 import io.bot.services.retriever.IDataRetrieverService
 import io.bot.services.retriever.model.ForbiddenPeriod
@@ -9,6 +10,7 @@ import io.bot.services.trading.model.Order
 import org.osgi.service.component.annotations.Activate
 import org.osgi.service.component.annotations.Component
 import org.osgi.service.component.annotations.Deactivate
+import org.osgi.util.measurement.Unit.s
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -29,7 +31,11 @@ class DataRetrieveServiceProducer: IDataRetrieverService{
     }
 
     override fun retrieveForbiddenPeriods(): Array<ForbiddenPeriod> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val forbiddenPeriods = arrayOf<ForbiddenPeriod>()
+
+
+        return forbiddenPeriods
+
     }
 
 

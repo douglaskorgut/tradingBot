@@ -1,5 +1,7 @@
 package io.trading.bot.service.producer
 
+import io.bot.services.constants.ForbiddenOffsetPeriods
+import io.bot.services.constants.OffsetTicks
 import io.bot.services.input.model.CursorPosition
 import io.bot.services.retriever.model.ForbiddenPeriod
 import io.bot.services.trading.ITradingBotService
@@ -38,11 +40,11 @@ class TradingBotServiceProducer: ITradingBotService {
 
     @Throws(Exception::class)
     override fun isSupportLineBuyable(candleContext: CandleContext): Boolean {
-        try {
 
+        try {
             if (
-                    (candleContext.currentCandle.currentPrice > candleContext.supportLine + 40) &&
-                    (candleContext.timeData.closingTs - (System.currentTimeMillis()/1000) > 40)
+                    (candleContext.currentCandle.currentPrice > candleContext.supportLine + OffsetTicks.DEFAULT_OFFSET_TICK) &&
+                    (candleContext.timeData.closingTs - (System.currentTimeMillis()/1000) > ForbiddenOffsetPeriods.DEFAULT_OFFSET_PERIOD)
 
             ) return true
 
@@ -54,12 +56,13 @@ class TradingBotServiceProducer: ITradingBotService {
 
     }
 
+    @Throws(Exception::class)
     override fun isResistenceLineSellable (candleContext: CandleContext): Boolean {
-        try {
 
+        try {
             if (
-                    (candleContext.currentCandle.currentPrice < candleContext.resistenceLine - 40) &&
-                    (candleContext.timeData.closingTs - (System.currentTimeMillis()/1000) > 40)
+                    (candleContext.currentCandle.currentPrice < candleContext.resistenceLine - OffsetTicks.DEFAULT_OFFSET_TICK) &&
+                    (candleContext.timeData.closingTs - (System.currentTimeMillis()/1000) > ForbiddenOffsetPeriods.DEFAULT_OFFSET_PERIOD)
             ) return true
 
         } catch (e: Exception){
@@ -79,11 +82,11 @@ class TradingBotServiceProducer: ITradingBotService {
     @Throws(Exception::class)
     override fun executeMarketBuyOrder(order: Order, buyMarketButtonPosition: CursorPosition, orderConfirmationButtonPosition: CursorPosition) {
         try {
-            if (order in this.marketBuyOrders) throw Exception("Order: ${order.orderId} has been received already")
+            if (order in this.marketBuyOrders) throw Exception("Order: ${order.id} has already been received")
 
             // Click on market buy
         } catch (e: Exception){
-            throw Exception("Error executing markey buy order: ${e.message}")
+            throw Exception("Error executing market buy order: ${e.message}")
         }
     }
 

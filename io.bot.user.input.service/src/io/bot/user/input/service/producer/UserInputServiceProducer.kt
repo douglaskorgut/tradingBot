@@ -48,8 +48,8 @@ class UserInputServiceProducer: IUserInputService {
         try {
             this.robot.mousePress(InputEvent.BUTTON3_MASK)
             this.robot.delay(TradingBotConstants.RIGHT_CLICK_DELAY_MS)
-           this.robot.mouseRelease(InputEvent.BUTTON3_MASK)
-           this.robot.delay(TradingBotConstants.RIGHT_CLICK_DELAY_MS)
+            this.robot.mouseRelease(InputEvent.BUTTON3_MASK)
+            this.robot.delay(TradingBotConstants.RIGHT_CLICK_DELAY_MS)
         } catch (e: Exception){
             logger.error("Error performing right click: ${e.message}")
         }
